@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "nicovideo2discord",
+    "version": "1.0.0",
+    "description": "ニコニコ動画を見ている際の動画情報をDiscordのRich Presenceに表示します。",
+    "content_scripts": [
+        {
+            "matches": ["https://www.nicovideo.jp/watch/*"],
+            "js": ["content_script.js"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ]
+}

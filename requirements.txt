@@ -1,4 +1,0 @@
-xmltodict
-https://github.com/qwertyquerty/pypresence/archive/master.zip
-flask
-flask_cors
