@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "nicovideo2discord"
+version = "2.0.0"
+description = "ニコニコ動画を見ている際の動画情報をDiscordのRich Presenceに表示します。"
+authors = ["okaits7534 <okaits@okaits7534.net>"]
+license = "MIT License"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+fastapi = {extras = ["standard"], version = "^0.112.0"}
+uvicorn = {extras = ["standard"], version = "^0.30.5"}
+pypresence = "^4.3.0"
+nest-asyncio = "^1.6.0"
+orjson = "^3.10.6"
+nicovideo-py = "^4.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.2.6"
+mypy = "^1.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
