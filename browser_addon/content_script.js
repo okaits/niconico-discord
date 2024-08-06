@@ -6,10 +6,7 @@ const mutationObserver = new MutationObserver(() => {
         const beacon_headers = {type: "application/json"}
 
         function start_video() {
-            navigator.sendBeacon("http://localhost:36201/api/v1/start_watch", new Blob([JSON.stringify({video_id: video_id})], beacon_headers));
-        };
-        function seek_video() {
-            navigator.sendBeacon("http://localhost:36201/api/v1/seek", new Blob([JSON.stringify({time: player.currentTime})], beacon_headers));
+                navigator.sendBeacon("http://localhost:36201/api/v1/update_watch", new Blob([JSON.stringify({video_id: video_id, time: player.currentTime})], beacon_headers));
         };
         function stop_video() {
             navigator.sendBeacon("http://localhost:36201/api/v1/stop_watch");

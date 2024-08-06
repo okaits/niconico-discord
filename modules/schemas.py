@@ -5,12 +5,9 @@ import pydantic
 
 class ClientRequest:
     """ クライアントのリクエストボディ """
-    class APIv1StartWatch(pydantic.BaseModel):
+    class APIv1UpdateWatch(pydantic.BaseModel):
         """ /api/v1/start_watch のリクエストボディ """
         video_id: str
-
-    class APIv1Seek(pydantic.BaseModel):
-        """ /api/v1/seek のリクエストボディ """
         time: datetime.timedelta
 
 class ServerResponse:
