@@ -27,12 +27,12 @@ async def update_video(videoid: str, time: datetime.timedelta, now: datetime.dat
             timesecs += (end_datetime - start_datetime).seconds
     all_time = datetime.timedelta(seconds=timesecs)
     video = _get_video_with_cache(videoid)
-    presence_rpc.update(pid=os.getpid(), state=f"本日累計 {all_time}",
+    presence_rpc.update(pid=os.getpid(), state=f"本日累計 {all_time}（一時停止時に更新）",
                         details=f"「{video.title}」（{video.cached_uploader.nickname}）を視聴中",
                         start=float((now-time).timestamp()),
                         large_image="tv_chan", large_text="ニコニコテレビちゃん",
                         buttons=[
-                            {"label": "視聴する", "url": f"https://www.nicovideo.jp/{video.nicovideo_id}"},
+                            {"label": "視聴する", "url": f"https://www.nicovideo.jp/watch/{video.nicovideo_id}"},
                             {"label": "ニコニコ動画トップ", "url": "https://www.nicovideo.jp/video_top"}
                         ])
 
