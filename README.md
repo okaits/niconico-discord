@@ -1,5 +1,5 @@
 # nicovideo2discord
-ニコニコ動画にある動画を閲覧したら、自動的にDiscord Rich Presenceで共有します。
+ニコニコ動画にある動画を閲覧したら、自動的にDiscord Rich Presenceで共有します。  
 Ubuntu 24.04のChromiumで動作確認をしています。
 
 # 使い方
@@ -19,7 +19,7 @@ Ubuntu 24.04のChromiumで動作確認をしています。
 3. `poetry install`  
     poetryで依存ライブラリをインストールします。
 4. ブラウザに拡張機能をインストール  
-    （Chromium系の場合）`chrome://extensions`を開き、右上の「デベロッパー モード」をONにし、左上の「パッケージ化されていな拡張機能を読み込む」を押し、このリポジトリの`browser_addon`ディレクトリを選択
+    （Chromium系の場合）`chrome://extensions`を開き、右上の「デベロッパー モード」をONにし、左上の「パッケージ化されていない拡張機能を読み込む」を押し、このリポジトリの`browser_addon`ディレクトリを選択してください。
 
 ## 使用
 1. Discordを開く
