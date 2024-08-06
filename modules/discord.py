@@ -25,9 +25,9 @@ async def update_video(videoid: str, time: datetime.timedelta, now: datetime.dat
         start_datetime, end_datetime = (datetime.datetime.fromisoformat(iso) for iso in (start, end))
         if start_datetime.day == datetime.datetime.now().day:
             timesecs += (end_datetime - start_datetime).seconds
-    time = datetime.timedelta(seconds=timesecs)
+    all_time = datetime.timedelta(seconds=timesecs)
     video = _get_video_with_cache(videoid)
-    presence_rpc.update(pid=os.getpid(), state=f"本日累計 {time}",
+    presence_rpc.update(pid=os.getpid(), state=f"本日累計 {all_time}",
                         details=f"「{video.title}」（{video.cached_uploader.nickname}）を視聴中",
                         start=float((now-time).timestamp()),
                         large_image="tv_chan", large_text="ニコニコテレビちゃん",
