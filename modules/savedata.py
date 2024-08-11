@@ -10,13 +10,13 @@ logger = logging.getLogger()
 
 if not SAVEDATA_FILE.exists():
     with open(SAVEDATA_FILE, encoding="utf-8", mode="w") as h:
-        write_data = f'N2DSAVE: {int(input("Discord client id: "))}\n'
+        write_data = f'N2DSAVE\n'
         h.write(write_data)
 
 with open(SAVEDATA_FILE, encoding="utf-8", mode="r") as h:
     savedata = h.read()
 
-discord_client_id = int(savedata.split("\n")[0][9:])
+DISCORD_CLIENT_ID = 1269728794944475166
 now_playing: typing.Optional[tuple[str, datetime.datetime]] = None
 now_playing_time_update: typing.Optional[tuple[datetime.timedelta, datetime.datetime]] = None
 

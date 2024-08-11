@@ -25,8 +25,7 @@ Ubuntu 24.04のChromiumで動作確認をしています。
 1. Discordを開く
 2. `python3 -m poetry run python3 server.py`  
     リポジトリにcdしてから、サーバーを起動します。
-3. (初回のみ) サーバーを起動した際にプロンプトが出てくるので、`1269728794944475166`と入力してEnterしてください。
-4. 動画を観る
+3. 動画を観る
 
 ### License
 [MIT License](LICENSE.md)

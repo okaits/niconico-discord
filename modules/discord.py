@@ -10,7 +10,7 @@ import nicovideo.video
 
 from . import savedata
 
-presence_rpc = pypresence.Presence(savedata.discord_client_id)
+presence_rpc = pypresence.Presence(savedata.DISCORD_CLIENT_ID)
 presence_rpc.connect()
 
 @functools.cache
