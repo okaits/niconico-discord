@@ -1,0 +1,12 @@
+REM windows_amd64_executable_server.exeを作る
+REM 注: poetry runを介して実行すること。また、Windows以外では動きません。
+
+$ErrorActionPreference = "Stop"
+py -m pip install PyInstaller
+py -m PyInstaller --onefile server.py
+
+$Arch = "${env:PROCESSOR_ARCHITECTURE}".toLower()
+$Filename = "windows_${Arch}_executable_server.py"
+
+mv dist/server.exe "$Filename"
+rm -r dist build
