@@ -10,14 +10,14 @@ import nicovideo.video
 
 from . import savedata
 
-presence_rpc = pypresence.Presence(savedata.DISCORD_CLIENT_ID)
+presence_rpc = pypresence.Presence(savedata.DISCORD_CLIENT_ID, connection_timeout=300, response_timeout=300)
 presence_rpc.connect()
 
 @functools.cache
 def _get_video_with_cache(video_id: str):
     return nicovideo.video.get_metadata(video_id)
 
-async def update_video(videoid: str, time: datetime.timedelta, now: datetime.datetime):
+def update_video(videoid: str, time: datetime.timedelta, now: datetime.datetime):
     """ Rich Presenceの再生時更新 """
     timesecs = 0
     for record in savedata.records:
@@ -36,7 +36,7 @@ async def update_video(videoid: str, time: datetime.timedelta, now: datetime.dat
                             {"label": "ニコニコ動画トップ", "url": "https://www.nicovideo.jp/video_top"}
                         ])
 
-async def clear():
+def clear():
     """ Rich Presenceのクリア """
     presence_rpc.clear(pid=os.getpid())
 

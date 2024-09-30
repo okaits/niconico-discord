@@ -24,7 +24,7 @@ records = []
 for record in savedata.split("\n")[3:]:
     records.append(record)
 
-async def append_record(value: str):
+def append_record(value: str):
     """ recordsリストにvalueを追加した後、更にSAVEDATA_FILEに記録する。 """
     with open(SAVEDATA_FILE, encoding="utf-8", mode="a") as h:
         h.write("\n" + value)
