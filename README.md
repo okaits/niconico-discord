@@ -8,20 +8,26 @@ Ubuntu 24.04のChromiumで動作確認をしています。
 ## Requirements
 * PC
 * ブラウザ
-* Python3
-* {Git,Python3,シェル}の基礎知識
 
 ## 初期設定
-1. `git clone`  
-    ブランチv1をcloneして、cdしてください。
-2. `python3 -m pip install poetry`  
-    （インストールされていない場合）poetryをインストールします。
-3. `poetry install`  
-    poetryで依存ライブラリをインストールします。
-4. ブラウザに拡張機能をインストール  
-    （Chromium系の場合）`chrome://extensions`を開き、右上の「デベロッパー モード」をONにし、左上の「パッケージ化されていない拡張機能を読み込む」を押し、このリポジトリの`browser_addon`ディレクトリを選択してください。
+1. ソースコードをダウンロード  
+   [最新リリース](https://github.com/okaits/nicovideo2discord/releases/latest)から、ソースコードをダウンロードしてください。
+2. ブラウザに拡張機能をインストール  
+    （Chromium系の場合）`chrome://extensions`を開き、右上の「デベロッパー モード」をONにし、左上の「パッケージ化されていない拡張機能を読み込む」を押し、先ほどダウンロードしたソースコードの`browser_addon`ディレクトリを選択してください。
+3. サーバーのダウンロード
+   [最新リリース](https://github.com/okaits/nicovideo2discord/releases/latest)から、Windowsなら`windows_amd64_executable_server.exe`を、Linuxなら`linux_amd64_executable_server.elf`をダウンロードしてください。
 
 ## 使用
+### Windows
+1. Discordを開く
+2. 初期設定時にダウンロードした`windows_amd64_executable_server.exe`をダブルクリック（実行）してください。
+3. 初回のみ「WindowsによってPCが保護されました」というダイアログが表示されるので、詳細情報をクリックすることで右下に現れる実行ボタンを押して実行してください。
+4. 動画を観る
+### Linux
+1. Discordを開く
+2. 初期設定時にダウンロードした`linux_amd64_executable_server.elf`に、付与されていない場合は実行権限を付与し、実行する
+3. 動画を観る
+### 開発者向け
 1. Discordを開く
 2. `python3 -m poetry run python3 server.py`  
     リポジトリにcdしてから、サーバーを起動します。
