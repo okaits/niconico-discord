@@ -21,31 +21,31 @@ nest_asyncio.apply() #fastapiのasyncioとpypresenceのasyncioが衝突するの
 
 @app.post("/api/v1/update_watch", response_model=schemas.ServerResponse.ResponseMessage,
           status_code=200, response_class=fastapi.responses.ORJSONResponse)
-async def api_v1_update_watch(videodata: schemas.ClientRequest.APIv1UpdateWatch):
+def api_v1_update_watch(videodata: schemas.ClientRequest.APIv1UpdateWatch):
     """ /api/v1/update_watch: Update video."""
     if savedata.now_playing:
-        await savedata.append_record(
+        savedata.append_record(
             f"{savedata.now_playing[0]},"
             f"{savedata.now_playing[1].isoformat()},"
             f"{datetime.datetime.now().isoformat()}"
         )
     savedata.now_playing = (videodata.video_id, datetime.datetime.now())
     savedata.now_playing_time_update = (videodata.time, datetime.datetime.now())
-    await discord.update_video(savedata.now_playing[0], savedata.now_playing_time_update[0],
+    discord.update_video(savedata.now_playing[0], savedata.now_playing_time_update[0],
                                savedata.now_playing_time_update[1])
     return fastapi.responses.ORJSONResponse({"message": "ok"}, status_code=200)
 
 @app.post("/api/v1/stop_watch", response_model=schemas.ServerResponse.ResponseMessage,
           status_code=200, response_class=fastapi.responses.ORJSONResponse)
-async def api_v1_stop_watch():
+def api_v1_stop_watch():
     """ /api/v1/stop_watch: Stop watching video. """
     if savedata.now_playing:
-        await savedata.append_record(
+        savedata.append_record(
             f"{savedata.now_playing[0]},"
             f"{savedata.now_playing[1].isoformat()},"
             f"{datetime.datetime.now().isoformat()}"
         )
     savedata.now_playing = None
     savedata.now_playing_time_update = None
-    await discord.clear()
+    discord.clear()
     return fastapi.responses.ORJSONResponse({"message": "ok"}, status_code=200)
